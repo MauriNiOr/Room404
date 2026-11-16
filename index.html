@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1017" />
+  <meta name="description" content="ROOM 404 · Recepcionista de noche. Una aventura pixel art de misterio y decisiones." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <title>ROOM 404 — Night Desk</title>
+</head>
+<body>
+<div class="ambient-grid" aria-hidden="true"></div>
+<div class="shell">
+  <header class="topbar">
+    <div class="brand"><div class="brand-icon">404</div><div><b>ROOM <span>404</span></b><small>THE HOLLOW INN · NIGHT DESK</small></div></div>
+    <div class="top-actions"><span id="session-status" class="status"><span class="status-dot"></span>SISTEMA DESCONECTADO</span><button id="fullscreen-btn" class="icon-btn" title="Pantalla completa" aria-label="Activar pantalla completa">⛶ <span>PANTALLA COMPLETA</span></button><button id="voice-btn" class="icon-btn" title="Narración en español" aria-label="Activar o desactivar narración en español">♬ <span id="voice-state">VOZ ESPAÑOL: ON</span></button><button id="sound-btn" class="icon-btn" title="Activar/desactivar sonido" aria-label="Activar/desactivar sonido">♪ <span id="sound-state">ON</span></button><button id="help-btn" class="icon-btn" title="Instrucciones" aria-label="Instrucciones">?</button></div>
+  </header>
+  <main class="layout">
+    <section class="screen-panel" aria-label="Escena del hotel">
+      <div class="screen-heading"><div><span class="red-dot"></span><b>CAM 01</b><span class="slash">/</span> RECEPCIÓN</div><div id="screen-time">23:47:00</div></div>
+      <div class="game-screen" id="game-screen">
+        <canvas id="game" width="480" height="270" aria-label="Juego de recepción de hotel pixel art"></canvas>
+        <div class="vhs-noise" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div><div class="vignette" aria-hidden="true"></div>
+        <div id="cinematic" class="cinematic">
+          <div class="cinema-bars"></div>
+          <div id="cinema-text" class="cinema-text"></div>
+          <button id="skip-cinema" class="skip-btn" type="button">SALTAR INTRO <span>↗</span></button>
+        </div>
+        <div id="tutorial-overlay" class="tutorial-overlay hidden" aria-live="polite">
+          <div class="tutorial-card"><div class="tutorial-label">NIVEL 00 · FORMACIÓN <span id="tutorial-progress">1 / 5</span></div><h2 id="tutorial-heading">TU PRIMER HUÉSPED</h2><p id="tutorial-copy">Aprende a verificar un documento antes de entregar una llave.</p></div>
+          <button type="button" id="skip-tutorial" class="skip-btn tutorial-skip">SALTAR TUTORIAL →</button>
+        </div>
+        <div id="title-overlay" class="title-overlay">
+          <span class="micro-title">UNA EXPERIENCIA DE TERROR PSICOLÓGICO</span>
+          <h1>ROOM <em>404</em></h1><div class="title-rule"></div>
+          <p>EL HOTEL NO SIEMPRE RECUERDA<br>A QUIÉN DEJÓ ENTRAR.</p>
+          <button class="primary title-cta" id="start-btn">COMENZAR HISTORIA <span>→</span></button>
+          <small>V 0.2 · HISTORIA NARRADA · TUTORIAL OPCIONAL</small>
+        </div>
+        <div id="flash-screen" class="flash-screen" aria-hidden="true"></div>
+      </div>
+      <div class="bottom-strip"><div><span class="rec-dot"></span> REC <span class="sep">|</span> <span id="floor-text">PLANTA BAJA</span></div><div id="scene-hint">ESPERANDO AL EMPLEADO...</div><div>HOLLOW INN © 1998</div></div>
+      <div class="dialogue-box" id="dialogue-box" aria-live="polite"><div class="dialogue-meta"><span id="speaker">SISTEMA</span><span id="dialogue-count">REGISTRO 00</span></div><p id="dialogue">No todas las personas que llaman a la puerta necesitan una habitación.</p></div>
+    </section>
+    <aside class="sidebar" aria-label="Panel de recepción">
+      <div class="section-kicker"><span class="line"></span> CONSOLA DE RECEPCIÓN <span class="line"></span></div>
+      <div class="night-head"><div><small id="night-label">TURNO NOCTURNO</small><strong id="night-value">NOCHE 01</strong></div><span id="night-clock">23:47</span></div>
+      <div class="metrics"><div><small>PROPINAS</small><b id="cash-value">0 €</b></div><div><small>ERRORES</small><b id="error-value">00</b></div><div><small>TENSIÓN</small><div class="stress-meter"><i id="stress-fill"></i></div></div></div>
+      <div class="dossier-head"><div><span class="section-label">EXPEDIENTE ACTUAL</span><h2 id="guest-name">SIN CLIENTE</h2></div><span id="guest-number" class="guest-num">#000</span></div>
+      <div class="id-card" id="id-card"><div class="id-left"><div class="id-crest">H</div><span>DOCUMENTO DE IDENTIDAD</span><strong id="id-name">—</strong><small id="id-detail">ESPERANDO IDENTIFICACIÓN</small></div><div id="id-avatar" class="id-avatar"><span>?</span></div></div>
+      <div class="tool-label">HERRAMIENTAS DE VERIFICACIÓN</div>
+      <div class="tools"><button id="tool-id" data-tool="id"><span class="tool-symbol">▣</span><span>IDENTIDAD<small>Documento / fotografía</small></span></button><button id="tool-ledger" data-tool="ledger"><span class="tool-symbol">▤</span><span>REGISTRO<small>Reservas del hotel</small></span></button><button id="tool-camera" data-tool="camera"><span class="tool-symbol">◉</span><span>CÁMARAS<small>Pasillo / entrada</small></span></button><button id="tool-question" data-tool="question"><span class="tool-symbol">?</span><span>PREGUNTAR<small>Una pregunta al huésped</small></span></button></div>
+      <div class="evidence-panel" id="evidence-panel" aria-live="polite"><span class="evidence-head">◈ TERMINAL DE CONSULTAS</span><p id="evidence-text">Cuando llegue un huésped, utiliza las herramientas para comprobar si puedes dejarle pasar.</p></div>
+      <div class="decision-box"><div class="decision-title">DECISIÓN DE RECEPCIÓN <span>↓</span></div><div class="decisions"><button id="deny-btn" class="deny" disabled>✕ RECHAZAR</button><button id="accept-btn" class="accept" disabled>✓ ACEPTAR</button></div><small id="decision-help">Comprueba los documentos antes de decidir.</small></div>
+    </aside>
+  </main>
+  <footer><span>EL RECEPCIONISTA NO ABANDONA SU PUESTO ANTES DE LAS 06:00.</span><span>UN JUEGO ORIGINAL · HECHO CON HTML5 CANVAS</span></footer>
+</div>
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-card"><div class="modal-eyebrow">THE HOLLOW INN / 1998</div><h2 id="modal-title">MANUAL DE TURNO</h2><div id="modal-content"></div><button id="modal-close" class="primary">ENTENDIDO →</button></div></div>
+<script src="src/data.js"></script><script src="src/audio.js"></script><script src="src/voices.js"></script><script src="src/game.js"></script>
+</body>
+</html>
